@@ -28,6 +28,9 @@ OWNER_EMAIL = os.environ.get('OWNER_EMAIL', 'Priya2goutham@gmail.com')
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 
 # ---------- Models ----------
 class StatusCheck(BaseModel):
@@ -46,7 +49,7 @@ class EnquiryCreate(BaseModel):
     email: EmailStr
     phone: Optional[str] = ""
     child_name: str
-    child_age: int = Field(ge=4, le=16)
+    child_age: int = Field(ge=6, le=13)
     preferred_week: str
     programme_interest: str
     message: Optional[str] = ""
@@ -157,9 +160,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
 
 
 @app.on_event("shutdown")
