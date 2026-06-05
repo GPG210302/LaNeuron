@@ -26,9 +26,13 @@ export const Navbar = ({ onRegister }) => {
         scrolled ? "bg-white/95 backdrop-blur border-b-2 border-[#0F172A]" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20 sm:h-24">
+      <div className={`max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${scrolled ? "h-20" : "h-28 sm:h-[220px]"}`}>
         <button onClick={() => go("#home")} data-testid="logo" className="flex items-center">
-          <img src={logo} alt="La Neuron – STEAM Academy" className="h-14 sm:h-[72px] w-auto" />
+          <img
+            src={logo}
+            alt="La Neuron – STEAM Academy"
+            className={`w-auto transition-all duration-300 ${scrolled ? "h-12 sm:h-16" : "h-24 sm:h-[200px]"}`}
+          />
         </button>
 
         <nav className="hidden lg:flex items-center gap-1">

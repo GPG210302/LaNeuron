@@ -15,7 +15,7 @@ const Floating = ({ children, className, delay = 0 }) => (
 
 export const Hero = ({ onRegister }) => {
   return (
-    <section id="home" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden ln-grid-bg">
+    <section id="home" className="relative pt-36 pb-20 sm:pt-[250px] lg:pt-[260px] lg:pb-28 overflow-hidden ln-grid-bg">
       {/* blobs */}
       <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#E0E7FF] blur-3xl opacity-60" />
       <div className="pointer-events-none absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-[#FFE4E4] blur-3xl opacity-60" />
