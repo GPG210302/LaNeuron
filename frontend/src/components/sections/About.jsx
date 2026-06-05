@@ -19,8 +19,8 @@ export const About = () => {
                   <GraduationCap size={18} />
                 </span>
                 <div className="leading-tight">
-                  <div className="font-display font-extrabold text-sm">PhD Cognitive</div>
-                  <div className="text-xs text-[#475569] font-semibold">Scientist</div>
+                  <div className="font-display font-extrabold text-sm">PhD Anatomy</div>
+                  <div className="text-xs text-[#475569] font-semibold">(Cognitive Scientist)</div>
                 </div>
               </div>
             </div>
