@@ -5,7 +5,7 @@ import educatorImg from "../../assets/educator.png";
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 lg:py-28">
+    <section id="about" className="py-20 lg:py-28 pt-28 sm:pt-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-5 gap-12 items-start">
         {/* Image */}
         <Reveal className="lg:col-span-2 lg:sticky lg:top-28">

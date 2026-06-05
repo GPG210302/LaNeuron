@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Gift } from "lucide-react";
-import { Reveal, SectionHeading } from "../Reveal";
+import { CheckCircle2, Gift, ArrowDown } from "lucide-react";
+import { Reveal } from "../Reveal";
 import { METHOD, RECEIVE, AGE_GROUPS } from "../../data";
 
 export const Approach = () => {
@@ -19,17 +19,16 @@ export const Approach = () => {
           </div>
         </Reveal>
 
-        {/* Zigzag process flow */}
-        <div className="mt-16 relative">
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-8">
-            {METHOD.map((m, i) => (
+        {/* Process flow with connecting arrows */}
+        <div className="mt-14 max-w-3xl mx-auto">
+          {METHOD.map((m, i) => (
+            <div key={m.n}>
               <motion.div
-                key={m.n}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5 }}
-                className={`flex items-start gap-4 ${i % 2 === 1 ? "md:mt-10" : ""}`}
+                transition={{ duration: 0.45 }}
+                className="bg-white/5 rounded-2xl border border-white/10 p-5 sm:p-6 flex items-start gap-4"
                 data-testid={`method-step-${m.n}`}
               >
                 <div className="relative shrink-0">
@@ -43,15 +42,32 @@ export const Approach = () => {
                     {m.n}
                   </span>
                 </div>
-                <div className="bg-white/5 rounded-2xl border border-white/10 p-5 flex-1">
-                  <h3 className="font-display font-extrabold text-xl" style={{ color: m.color === "#FBBF24" ? "#FDE68A" : "#fff" }}>
+                <div>
+                  <h3
+                    className="font-display font-extrabold text-xl"
+                    style={{ color: m.color === "#FBBF24" ? "#FDE68A" : "#fff" }}
+                  >
                     {m.title}
                   </h3>
-                  <p className="mt-2 text-white/70 leading-relaxed">{m.text}</p>
+                  <p className="mt-1.5 text-white/70 leading-relaxed">{m.text}</p>
                 </div>
               </motion.div>
-            ))}
-          </div>
+
+              {i < METHOD.length - 1 && (
+                <motion.div
+                  className="flex justify-center py-2"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="grid place-items-center w-8 h-8 rounded-full bg-[#FBBF24] text-[#0F172A] border-2 border-[#0F172A]">
+                    <ArrowDown size={18} />
+                  </span>
+                </motion.div>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* What children receive + age groups */}

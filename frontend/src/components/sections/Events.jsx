@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
-import { CalendarDays, Clock, MapPin, Users, AlertCircle, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { CalendarDays, Clock, MapPin, Users, AlertCircle, ArrowRight, RotateCw } from "lucide-react";
 import { Reveal } from "../Reveal";
-import { CAMP_DAYS, CAMP_FACTS } from "../../data";
+import { FlipCard } from "../FlipCard";
+import { CAMP_DAYS, CAMP_FACTS, SITE } from "../../data";
 
-export const Events = ({ onRegister }) => {
+export const Events = () => {
+  const navigate = useNavigate();
   return (
-    <section id="events" className="py-20 lg:py-28 bg-white border-y-2 border-[#0F172A] relative overflow-hidden">
+    <section id="events" className="py-20 lg:py-28 pt-28 sm:pt-32 bg-white border-b-2 border-[#0F172A] relative overflow-hidden">
       <div className="pointer-events-none absolute top-10 right-10 w-72 h-72 rounded-full bg-[#FFE4E4] blur-3xl opacity-50" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         <Reveal>
@@ -19,39 +21,48 @@ export const Events = ({ onRegister }) => {
             </span>
           </div>
           <p className="mt-5 max-w-3xl text-lg text-[#475569] leading-relaxed">
-            A one-week intensive STEAM summer camp for children aged 6–13. Each day has a dedicated theme. Children spend
-            3 hours per day in guided scientific investigations, both indoors and outdoors.
+            A one-week intensive STEAM summer camp for children aged 6–13. Each day is a different themed lab. Children
+            spend 3 hours per day in guided scientific investigations, both indoors and outdoors.
           </p>
         </Reveal>
 
-        {/* Weekly timeline */}
+        {/* Weekly flip-card timeline */}
         <Reveal delay={0.05}>
           <h3 className="mt-12 font-display font-extrabold text-2xl flex items-center gap-2">
             <CalendarDays size={24} className="text-[#4338CA]" /> A week at camp
+            <span className="text-sm font-semibold text-[#475569] ml-2">(tap a day to explore)</span>
           </h3>
           <div className="mt-6 grid md:grid-cols-5 gap-4" data-testid="camp-week">
-            {CAMP_DAYS.map((d, i) => (
-              <motion.div
+            {CAMP_DAYS.map((d) => (
+              <FlipCard
                 key={d.day}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="ln-card ln-card-hover p-5 flex flex-col"
-                style={{ background: `${d.color}14` }}
-                data-testid={`camp-day-${d.day}`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-display font-extrabold text-sm uppercase tracking-wider" style={{ color: d.color }}>
-                    {d.day}
-                  </span>
-                  <span className="grid place-items-center w-10 h-10 rounded-xl text-white border-2 border-[#0F172A]" style={{ background: d.color }}>
-                    <d.icon size={20} />
-                  </span>
-                </div>
-                <h4 className="mt-4 font-display font-extrabold text-lg leading-tight">{d.theme}</h4>
-                <p className="mt-2 text-sm text-[#475569] leading-relaxed flex-1">{d.text}</p>
-              </motion.div>
+                heightClass="h-64"
+                testid={`camp-day-${d.day}`}
+                front={
+                  <div className="ln-card h-full p-5 flex flex-col" style={{ background: `${d.color}14` }}>
+                    <div className="flex items-center justify-between">
+                      <span className="font-display font-extrabold text-xs uppercase tracking-wider" style={{ color: d.color }}>
+                        {d.day}
+                      </span>
+                      <span className="grid place-items-center w-10 h-10 rounded-xl text-white border-2 border-[#0F172A]" style={{ background: d.color }}>
+                        <d.icon size={20} />
+                      </span>
+                    </div>
+                    <h4 className="mt-4 font-display font-extrabold text-xl leading-tight">{d.lab}</h4>
+                    <p className="mt-1 text-sm font-semibold" style={{ color: d.color }}>{d.tagline}</p>
+                    <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-bold text-[#475569]">
+                      <RotateCw size={12} /> Tap to explore
+                    </span>
+                  </div>
+                }
+                back={
+                  <div className="ln-card h-full p-5 flex flex-col text-white" style={{ background: d.color }}>
+                    <h4 className="font-display font-extrabold text-lg leading-tight">{d.lab}</h4>
+                    <p className="text-xs font-semibold text-white/80">{d.tagline}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-white/95 overflow-y-auto">{d.text}</p>
+                  </div>
+                }
+              />
             ))}
           </div>
         </Reveal>
@@ -73,7 +84,7 @@ export const Events = ({ onRegister }) => {
               <div className="mt-6 grid grid-cols-3 gap-3">
                 <Stat icon={Clock} label="3 hrs / day" />
                 <Stat icon={Users} label="Max 10 kids" />
-                <Stat icon={MapPin} label="Kraków, PL" />
+                <Stat icon={MapPin} label="Stakkato" />
               </div>
 
               <div className="mt-6 ln-card !shadow-none bg-[#E0E7FF] p-4 flex gap-3">
@@ -85,7 +96,7 @@ export const Events = ({ onRegister }) => {
                 </p>
               </div>
 
-              <button onClick={onRegister} className="ln-btn ln-btn-primary mt-6 w-full" data-testid="events-register-btn">
+              <button onClick={() => navigate("/register")} className="ln-btn ln-btn-primary mt-6 w-full" data-testid="events-register-btn">
                 Reserve Your Child's Spot <ArrowRight size={18} />
               </button>
             </div>
@@ -95,12 +106,11 @@ export const Events = ({ onRegister }) => {
             <div className="ln-card overflow-hidden h-full min-h-[420px] flex flex-col">
               <div className="px-5 py-3 border-b-2 border-[#0F172A] flex items-center gap-2 bg-[#0F172A] text-white">
                 <MapPin size={18} className="text-[#FF6B6B]" />
-                <span className="font-display font-bold">Kraków, Poland</span>
-                <span className="ml-auto text-xs text-white/60">Exact address shared on registration</span>
+                <span className="font-display font-bold">{SITE.venue}</span>
               </div>
               <iframe
-                title="Kraków map"
-                src="https://www.google.com/maps?q=Krak%C3%B3w%2C+Poland&output=embed"
+                title="Stakkato Kraków map"
+                src="https://www.google.com/maps?q=Stakkato%20Berka%20Joselewicza%2023%20Krak%C3%B3w&output=embed"
                 className="w-full flex-1 border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

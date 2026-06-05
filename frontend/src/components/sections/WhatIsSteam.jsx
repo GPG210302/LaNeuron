@@ -8,7 +8,7 @@ export const WhatIsSteam = () => {
   const current = STEAM.find((s) => s.key === active);
 
   return (
-    <section id="what-is-steam" className="py-20 lg:py-28 bg-white border-y-2 border-[#0F172A]">
+    <section id="what-is-steam" className="py-20 lg:py-28 pt-28 sm:pt-32 bg-white border-b-2 border-[#0F172A]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <Reveal>
           <SectionHeading

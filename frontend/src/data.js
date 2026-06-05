@@ -1,7 +1,7 @@
 // All site content lives here so it can be tweaked without touching components.
 import {
   Atom, Cpu, Cog, Palette, Sigma, Brain, Sprout, Rocket,
-  Lightbulb, TrendingUp, Shapes, Trees,
+  Lightbulb, TrendingUp, Shapes, Trees, Microscope, Leaf, Apple,
   FlaskConical, ClipboardList, Search, Eye, BarChart3, CheckCircle2,
 } from "lucide-react";
 
@@ -11,18 +11,19 @@ export const SITE = {
   tagline: "Inspiring the next generation of thinkers, makers, and explorers",
   phone: "+48 729 655 422",
   email: "Priya2goutham@gmail.com",
-  location: "Kraków, Poland",
+  location: "Stakkato, Kraków",
+  venue: "Stakkato · Berka Joselewicza 23, Kraków",
   social: { facebook: "#", instagram: "#" }, // placeholders – to be added later
 };
 
 export const NAV = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "What is STEAM?", href: "#what-is-steam" },
-  { label: "Why STEAM?", href: "#why-steam" },
-  { label: "Programmes", href: "#programmes" },
-  { label: "Summer Camp", href: "#events" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "What is STEAM?", path: "/what-is-steam" },
+  { label: "Why STEAM?", path: "/why-steam" },
+  { label: "Programmes", path: "/programmes" },
+  { label: "Summer Camp", path: "/summer-camp" },
+  { label: "FAQ", path: "/faq" },
 ];
 
 export const HERO = {
@@ -138,21 +139,36 @@ export const PROGRAMMES = [
 ];
 
 export const CAMP_DAYS = [
-  { day: "Mon", theme: "Space & the Universe", text: "Astronomy, gravity, the solar system, and rocket science basics.", icon: Rocket, color: "#4338CA" },
-  { day: "Tue", theme: "Art & Science", text: "The science of colour, light, pigments, and creative scientific illustration.", icon: Palette, color: "#A855F7" },
-  { day: "Wed", theme: "Nature & Living Things", text: "Plants, animals, ecosystems, and outdoor sample collection walks.", icon: Sprout, color: "#10B981" },
-  { day: "Thu", theme: "Engineering & Making", text: "Design challenges, simple machines, and build-and-test activities.", icon: Cog, color: "#F97316" },
-  { day: "Fri", theme: "Science Showcase", text: "Children present their week's findings, share results, and celebrate discoveries.", icon: CheckCircle2, color: "#FF6B6B" },
+  {
+    day: "Monday", lab: "Wonder Lab", tagline: "Chemical Reactions", icon: FlaskConical, color: "#4338CA",
+    text: "Hands-on chemistry! Children spark fizz, effervescence, and colour-changing reactions themselves — observing every change closely and recording their discoveries just like real scientists.",
+  },
+  {
+    day: "Tuesday", lab: "Build Lab", tagline: "Engineering & Making", icon: Cog, color: "#F97316",
+    text: "A day of design challenges. Children design and build simple machines, then test and improve their own creations — learning to plan, fail, iterate, and engineer real solutions.",
+  },
+  {
+    day: "Wednesday", lab: "Bio Lab", tagline: "Animals & Anatomy", icon: Microscope, color: "#10B981",
+    text: "Exploring the living world — animals, human body systems, and anatomy. Children collect specimens themselves and examine them under the microscope to see biology up close.",
+  },
+  {
+    day: "Thursday", lab: "Planet Lab", tagline: "Plants & Environment", icon: Leaf, color: "#16A34A",
+    text: "All about plants and our planet. Children study plant structures under the microscope and explore popular 'go-green' techniques — connecting science with caring for the environment.",
+  },
+  {
+    day: "Friday", lab: "Food Lab + Showcase", tagline: "Food Science & Celebration", icon: Apple, color: "#FF6B6B",
+    text: "Morning: the science in the food we eat — health, lifestyle, and how food affects our body systems, through fun activities. Finale: in the last 30 minutes each child presents a favourite discovery from the week, shares results, and celebrates. Parents are warmly invited to this closing session.",
+  },
 ];
 
 export const CAMP_FACTS = [
-  { label: "Start date", value: "29 June 2026" },
+  { label: "Start date", value: "6 July 2026" },
   { label: "End date", value: "End of August 2026" },
   { label: "Duration", value: "8 weekly camps" },
   { label: "Daily timing", value: "9:00 AM – 12:00 PM" },
   { label: "Days", value: "Monday to Friday" },
   { label: "Group size", value: "Max 10 children" },
-  { label: "Location", value: "Kraków, Poland" },
+  { label: "Location", value: "Stakkato, Kraków" },
   { label: "Language", value: "English" },
 ];
 

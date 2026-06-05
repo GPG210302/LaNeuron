@@ -7,7 +7,7 @@ import { FAQ as FAQS } from "../../data";
 export const Faq = () => {
   const [open, setOpen] = useState(0);
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-white border-t-2 border-[#0F172A]">
+    <section id="faq" className="py-20 lg:py-28 pt-28 sm:pt-32 bg-white">
       <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <Reveal>
           <SectionHeading overline="Good to know" title="Frequently Asked Questions" />

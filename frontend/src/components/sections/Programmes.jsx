@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, SectionHeading } from "../Reveal";
 import { PROGRAMMES } from "../../data";
 
-export const Programmes = ({ onRegister }) => {
+export const Programmes = () => {
+  const navigate = useNavigate();
   return (
-    <section id="programmes" className="py-20 lg:py-28">
+    <section id="programmes" className="py-20 lg:py-28 pt-28 sm:pt-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <Reveal>
           <SectionHeading
@@ -39,7 +41,7 @@ export const Programmes = ({ onRegister }) => {
                 <h3 className="font-display font-extrabold text-2xl">{p.title}</h3>
                 <p className="mt-3 text-[#475569] leading-relaxed flex-1">{p.text}</p>
                 <button
-                  onClick={onRegister}
+                  onClick={() => navigate("/register")}
                   className="mt-5 inline-flex items-center gap-1 font-bold self-start"
                   style={{ color: p.color }}
                   data-testid={`programme-enquire-${i}`}

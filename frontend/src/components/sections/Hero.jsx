@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Atom, Rocket, Sparkles, FlaskConical, ArrowRight, Languages } from "lucide-react";
 import { HERO } from "../../data";
 
@@ -13,10 +14,10 @@ const Floating = ({ children, className, delay = 0 }) => (
   </motion.div>
 );
 
-export const Hero = ({ onRegister }) => {
+export const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section id="home" className="relative pt-36 pb-20 sm:pt-[250px] lg:pt-[260px] lg:pb-28 overflow-hidden ln-grid-bg">
-      {/* blobs */}
       <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#E0E7FF] blur-3xl opacity-60" />
       <div className="pointer-events-none absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-[#FFE4E4] blur-3xl opacity-60" />
 
@@ -76,14 +77,10 @@ export const Hero = ({ onRegister }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.18 }}
           >
-            <button onClick={onRegister} className="ln-btn ln-btn-primary" data-testid="hero-cta-register">
+            <button onClick={() => navigate("/register")} className="ln-btn ln-btn-primary" data-testid="hero-cta-register">
               Reserve a Spot <ArrowRight size={18} />
             </button>
-            <button
-              onClick={() => document.querySelector("#what-is-steam")?.scrollIntoView({ behavior: "smooth" })}
-              className="ln-btn ln-btn-white"
-              data-testid="hero-cta-learn"
-            >
+            <button onClick={() => navigate("/what-is-steam")} className="ln-btn ln-btn-white" data-testid="hero-cta-learn">
               What is STEAM?
             </button>
           </motion.div>
@@ -103,7 +100,6 @@ export const Hero = ({ onRegister }) => {
           </motion.div>
         </div>
 
-        {/* Image card */}
         <motion.div
           className="relative"
           initial={{ opacity: 0, x: 30, rotate: 2 }}

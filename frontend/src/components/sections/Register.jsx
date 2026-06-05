@@ -45,7 +45,7 @@ export const Register = ({ formRef }) => {
   };
 
   return (
-    <section id="register" ref={formRef} className="py-20 lg:py-28">
+    <section id="register" ref={formRef} className="py-20 lg:py-28 pt-28 sm:pt-32">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-0 ln-card overflow-hidden">
           {/* Left intro */}
