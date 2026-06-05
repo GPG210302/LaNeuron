@@ -1,5 +1,6 @@
-import { Sparkles, Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { SITE, NAV } from "../../data";
+import logo from "../../assets/logo.png";
 
 const FACTS = ["Ages 6–13", "Mon–Fri 9AM–12PM", "Max 10 per week", "Starts 29 June 2026", "Kraków, Poland"];
 
@@ -10,11 +11,8 @@ export const Footer = ({ onRegister }) => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2">
-              <span className="grid place-items-center w-9 h-9 rounded-xl bg-[#4338CA] border-2 border-white/20">
-                <Sparkles size={18} />
-              </span>
-              <span className="font-display font-extrabold text-lg">{SITE.brand}</span>
+            <div className="inline-flex bg-white rounded-2xl p-3 border-2 border-white/15">
+              <img src={logo} alt="La Neuron – STEAM Academy" className="h-16 w-auto" />
             </div>
             <p className="mt-4 text-white/60 max-w-md leading-relaxed">
               Hands-on STEAM education for children aged 6–13. Led by a PhD Cognitive Scientist and certified

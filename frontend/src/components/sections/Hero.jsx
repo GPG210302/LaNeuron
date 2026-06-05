@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Atom, Rocket, Sparkles, FlaskConical, ArrowRight } from "lucide-react";
+import { Atom, Rocket, Sparkles, FlaskConical, ArrowRight, Languages } from "lucide-react";
 import { HERO } from "../../data";
 
 const Floating = ({ children, className, delay = 0 }) => (
@@ -37,9 +37,9 @@ export const Hero = ({ onRegister }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
           >
-            Real Science for{" "}
+            Real-World Science for{" "}
             <span className="relative inline-block text-[#4338CA]">
-              Real Kids
+              Young Minds
               <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none">
                 <path d="M2 9 C50 2, 150 2, 198 9" stroke="#FF6B6B" strokeWidth="4" strokeLinecap="round" />
               </svg>
@@ -54,6 +54,21 @@ export const Hero = ({ onRegister }) => {
           >
             {HERO.sub}
           </motion.p>
+
+          <motion.div
+            className="mt-5 max-w-xl ln-card !shadow-[4px_4px_0_#0F172A] bg-[#E0E7FF] p-4 flex items-start gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.16 }}
+            data-testid="hero-english-highlight"
+          >
+            <span className="grid place-items-center w-10 h-10 rounded-xl bg-[#4338CA] text-white border-2 border-[#0F172A] shrink-0">
+              <Languages size={20} />
+            </span>
+            <p className="text-sm md:text-base text-[#0F172A] font-medium leading-relaxed">
+              <span className="font-extrabold text-[#4338CA]">Taught entirely in English.</span> {HERO.english}
+            </p>
+          </motion.div>
 
           <motion.div
             className="mt-8 flex flex-wrap gap-4"

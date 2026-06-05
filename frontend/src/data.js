@@ -27,8 +27,9 @@ export const NAV = [
 
 export const HERO = {
   badge: "Ages 6–13 • Kraków, Poland",
-  headline: "Real Science for Real Kids",
+  headline: "Real-World Science for Young Minds",
   sub: "We believe every child is a natural scientist. We give children aged 6–13 the tools, the method, and the wonder to investigate the world around them through hands-on STEAM education.",
+  english: "Every session is conducted entirely in English. Children don't just improve their English — they communicate with their peers and educator in English, and learn to think and reason critically in English itself. In today's world, that ability is one of the most valuable skills a child can build.",
   key: "This is not just fun with science materials. Every session follows a proper scientific investigation — hypothesis, experiment, observation, results, and conclusion.",
   image:
     "https://images.pexels.com/photos/8471975/pexels-photo-8471975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -48,12 +49,15 @@ export const EDUCATOR = {
   philosophy:
     "I combine deep scientific knowledge with an understanding of how children's brains actually work. Every session I design is grounded in cognitive science — so children don't just do science, they remember it, understand it, and own it.",
   background: [
-    "Lecturer at a Medical University in India",
-    "Secondary Science Teacher at an International School in Kraków, Poland",
+    "Former Anatomist at a reputed Medical University",
+    "Academic Advisor for a digital educational platform",
+    "Secondary Science Educator at an International School in Poland",
     "Neuroscience Coaching Certificate holder",
     "Cognitive Specialist supporting children with learning differences, memory challenges, ADHD, dyslexia, and SEN",
     "Experience in exam preparation, revision strategies, handwriting, and cognitive development",
   ],
+  highlight:
+    "One of the most rewarding parts of my journey is training young children to conduct real research — guiding them to present their work at Jagiellonian University and publish their findings in reputed journals.",
 };
 
 export const STEAM = [

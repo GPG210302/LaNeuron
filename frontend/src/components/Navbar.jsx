@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
-import { NAV, SITE } from "../data";
+import { Menu, X } from "lucide-react";
+import { NAV } from "../data";
+import logo from "../assets/logo.png";
 
 export const Navbar = ({ onRegister }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,12 +26,9 @@ export const Navbar = ({ onRegister }) => {
         scrolled ? "bg-white/95 backdrop-blur border-b-2 border-[#0F172A]" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-[72px]">
-        <button onClick={() => go("#home")} data-testid="logo" className="flex items-center gap-2">
-          <span className="grid place-items-center w-9 h-9 rounded-xl bg-[#4338CA] text-white border-2 border-[#0F172A]">
-            <Sparkles size={18} />
-          </span>
-          <span className="font-display font-extrabold text-lg tracking-tight">{SITE.name}</span>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20 sm:h-24">
+        <button onClick={() => go("#home")} data-testid="logo" className="flex items-center">
+          <img src={logo} alt="La Neuron – STEAM Academy" className="h-14 sm:h-[72px] w-auto" />
         </button>
 
         <nav className="hidden lg:flex items-center gap-1">

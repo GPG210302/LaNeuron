@@ -1,4 +1,4 @@
-import { CheckCircle2, GraduationCap, Brain } from "lucide-react";
+import { CheckCircle2, GraduationCap, Bone, Award } from "lucide-react";
 import { Reveal } from "../Reveal";
 import { EDUCATOR } from "../../data";
 import educatorImg from "../../assets/educator.png";
@@ -30,11 +30,12 @@ export const About = () => {
         {/* Content */}
         <div className="lg:col-span-3">
           <Reveal>
-            <span className="ln-overline">Meet your science educator</span>
+            <span className="ln-overline">The mind behind La Neuron</span>
             <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight">{EDUCATOR.name}</h2>
             <div className="mt-3 flex flex-wrap gap-2">
-              <span className="ln-tag"><Brain size={13} /> Neuroscience Coach</span>
-              <span className="ln-tag">Cognitive Specialist</span>
+              <span className="ln-tag"><Bone size={13} /> Human Anatomist</span>
+              <span className="ln-tag">STEAM Educator</span>
+              <span className="ln-tag">Cognitive Science Specialist</span>
               <span className="ln-tag">SEN • ADHD • Dyslexia</span>
             </div>
             <p className="mt-6 text-lg text-[#475569] leading-relaxed">{EDUCATOR.intro}</p>
@@ -51,6 +52,18 @@ export const About = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <div className="mt-6 ln-card p-6 bg-[#0F172A] text-white" data-testid="educator-highlight">
+              <div className="flex items-center gap-3">
+                <span className="grid place-items-center w-11 h-11 rounded-xl bg-[#FBBF24] text-[#0F172A] border-2 border-white/20 shrink-0">
+                  <Award size={22} />
+                </span>
+                <h3 className="font-display font-extrabold text-lg text-[#FBBF24]">Published young researchers</h3>
+              </div>
+              <p className="mt-4 text-base md:text-lg text-white/85 leading-relaxed">{EDUCATOR.highlight}</p>
             </div>
           </Reveal>
 
