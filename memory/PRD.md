@@ -24,6 +24,13 @@ Build a highly-animated, professional yet kids-attractive landing page for a STE
 ## User Personas
 - Parents (6–13) in Kraków / international & bilingual families seeking enrichment or SEN-friendly STEAM learning.
 
+## Implemented (2026-06-05) — Iteration 2
+- Restructured from single long page into a **multi-page app** (react-router-dom): Home, About, What is STEAM?, Why STEAM?, Programmes, Summer Camp, FAQ, Register — navigable from the top nav (active-state highlighting) to reduce scrolling.
+- New branding: real **La Neuron logo** (transparent), enlarged ~3× in the header (shrinks on scroll), used in footer + favicon. Hero headline → "Real-World Science for Young Minds" + "Taught entirely in English" highlight. Educator section updated (overline, tags, professional background, "Published young researchers" highlight, "PhD Anatomy (Cognitive Scientist)" badge, new profile photo).
+- **Interactivity**: click-to-flip cards on Why STEAM (6 reasons) and Summer Camp week; scientific-method shown as a **process-flow diagram** with numbered steps + arrows.
+- **Summer Camp 2026** content rewritten: Mon Wonder Lab (chemistry), Tue Build Lab, Wed Bio Lab, Thu Planet Lab, Fri Food Lab + Showcase. Start date **6 July 2026**; venue **Stakkato, Berka Joselewicza 23, Kraków** (map updated).
+- Verified: frontend 24/24 Playwright checks pass (routing, flip cards, process flow, register e2e).
+
 ## Backlog / Next
 - **P1**: Enable Resend email notifications (add `RESEND_API_KEY`, `SENDER_EMAIL`, `OWNER_EMAIL`; verify domain). Add Facebook/Instagram URLs.
 - **P2**: Simple admin view to browse enquiries; auto-reply confirmation email to parent; analytics.
